@@ -2,7 +2,7 @@
   <div class="portfolio">
     <nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
       <div class="container">
-          <a class="navbar-brand" href="/"><img src="logo.png"/></a>
+          <a class="navbar-brand" href="/"><img :src="page.fields.logo"/></a>
           <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span></span>
               <span></span>
@@ -24,7 +24,7 @@
                   </li>
               </ul>
               <div class="nav-logo container">
-                  <img width="90px" src="frame.png"/>
+                  <img width="90px" :src="page.fields.footerlogo"/>
               </div>
           </div>
       </div>
@@ -61,11 +61,11 @@
                   <div class="row">
                       <div class="col-md-12">
                           <p class="service-text">
-                            <span>{{item.name}}</span>{{item.explanation}}
+                            <a :href="item.url" target="_new" class="service-link"><span>{{item.name}}</span></a>{{item.explanation}}
                           </p>
                       </div>
                       <div class="col-md-12">
-                          <img :src="item.logo"/>
+                          <a :href="item.url" target="_new"><img :src="item.logo"/></a>
                       </div>
                   </div>
               </div>
@@ -123,13 +123,13 @@
       <div class="container">
           <div class="row">
               <div class="col-md-6 footer-img-desk wow fadeInUp">
-                  <img src="frame.png"/>
+                  <img :src="page.fields.footerlogo"/>
               </div>
               <div class="col-md-6 copyright wow fadeInDown">
                   <p>@2019 Haystack Management Company LLC All rights reserved.</p>
               </div>
               <div class="col-md-6 footer-img-mob wow fadeInUp">
-                  <img width="43px" src="frame.png"/>
+                  <img width="43px" :src="page.fields.footerlogo"/>
               </div>
           </div>
         </div>
@@ -185,7 +185,6 @@ export default {
 .navbar.navbar-no-bg {
     background: white;
 }
- 
 .navbar-dark .navbar-nav {
     font-size: 24px;
     color: white;
@@ -325,8 +324,12 @@ export default {
   padding: 0 0 10px 0;
   color: rgba(0, 0, 0, 0.5);
 }
-.services-box p span {
+.services-box .service-link {
   color: black;
+}
+.services-box .service-link:hover {
+  text-decoration: none;
+  color: #555;
 }
 
 .about-us-box {
