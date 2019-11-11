@@ -38,9 +38,6 @@
                       <p>{{page.fields['description']}}</p>
                   </div>
               </div>
-              <div class="col-md-6 text">
-                  <div class="image-tbd"></div>
-              </div>
           </div>
         </div>            
     </div>
@@ -88,7 +85,7 @@
                     <div class="about-us-individual" v-for="item in page.fields['team-member']" v-bind:key="item.key">
                       <h4>{{item.name}}</h4>
                       <p class="medium-paragraph">
-                          {{item.role}}<br>
+                          <span class="role">{{item.role}}</span><br>
                           {{item.explanation}}
                       </p>
                       <div class="about-box-divider"></div>
@@ -102,23 +99,48 @@
       <div class="container contact-box-container">
           <div class="row">
               <div class="col-md-6 contact-box wow fadeInUp">
-                  <p>{{page.fields['contact-email']}}</p>
+                  <p><a :href="maillink" class="maillink">{{page.fields['contact-email']}}</a></p>
               </div>
               <div class="col-md-6 contact-form wow fadeInDown">
                   <p>Newsletter</p>
                   <p class="news-text">{{page.fields['contact-description']}}</p>
                   <div class="row">
-                    <div class="col-xs-6 px-3">
-                      <input name="email" placeholder="Your Email" class="form-control"/>
-                    </div>
-                    <div class="col-xs-6 px-3">
-                      <a href="javascript;;" class="form-control">Subscribe</a>
-                    </div>
+                  <div id="mc_embed_signup">
+                    <form action="https://haystack.us8.list-manage.com/subscribe/post?u=8015c7f0d2e7c73040a28ac30&amp;id=9305192d3c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                          <h2>Subscribe</h2>
+                          <div class="indicates-required"><span class="asterisk"></span> indicates required</div>
+                          <div class="mc-field-group">
+                              <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                              </label>
+                              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                          </div>
+                          <div class="mc-field-group">
+                              <label for="mce-FNAME">First Name </label>
+                              <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                          </div>
+                          <div class="mc-field-group">
+                              <label for="mce-LNAME">Last Name </label>
+                              <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+                          </div>
+                          <div id="mce-responses" class="clear">
+                              <div class="response" id="mce-error-response" style="display:none"></div>
+                              <div class="response" id="mce-success-response" style="display:none"></div>
+                          </div>
+                          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8015c7f0d2e7c73040a28ac30_9305192d3c" tabindex="-1" value=""></div>
+                          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                        </div>
+                    </form>
                   </div>
+                </div>
               </div>
           </div>
         </div>
     </div>
+    <!-- Begin Mailchimp Signup Form -->
+    
+<!--End mc_embed_signup-->
     <div class="footer-container">
       <div class="container">
           <div class="row">
@@ -163,6 +185,11 @@ export default {
         document.getElementsByClassName('navbar-toggler')[0].click()
     }
   },
+  computed: {
+    maillink: function() {
+      return "mailto:" + this.page.fields['contact-email'];
+    },
+  },
   created() {
     this.getPage()
   }
@@ -171,6 +198,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#mc_embed_signup { width: 100%; background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
 .navbar {
     padding-top: 80px;
     background: white;
@@ -298,6 +326,9 @@ export default {
 .hero-container .container {
   height: 500px;
 }
+.section-description {
+  margin-bottom: 100px;
+}
 .services-box {
   margin-bottom: 200px;
   padding-top: 30px;
@@ -308,6 +339,9 @@ export default {
   font-size: 42px;
   line-height: 50px;
   letter-spacing: -0.02em;
+}
+.services-box .row .col-md-12:first-child {
+  min-height: 300px !important;
 }
 .services-box:nth-child(2n) .row::before {
   border-left: 1px solid #C4C4C4;
@@ -365,6 +399,9 @@ export default {
   color: #808793;
   margin-bottom: 50px;
 }
+.about-us-individual p span {
+  color: #c4c4c4;
+}
 .about-box-divider {
   border-bottom: 1px solid #C4C4C4;
   width: 100px;
@@ -377,7 +414,7 @@ export default {
 }
 .contact-box-container {
   margin-top: 100px;
-  height: 400px;
+  margin-bottom: 50px;
   border-bottom: none !important;
 }
 .contact-form p {
@@ -387,30 +424,15 @@ export default {
   line-height: 38px;
   letter-spacing: -0.02em;
 }
+.contact-box .maillink {
+  color: black;
+}
+.contact-box .maillink:hover, .contact-form .maillink:focus{
+  text-decoration: none !important;
+  color: #777;
+}
 .contact-form .news-text {
   color: rgba(0, 0, 0, 0.5);
-}
-.contact-form input {
-  border: none;
-  border-bottom: 1px solid #aaa;
-  border-radius: 0px;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -0.02em;
-}
-.contact-form input:focus {
-  box-shadow: none;
-}
-.contact-form a {
-  border: none;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -0.02em;
-  color: #607ABA;
-}
-.contact-form a:hover, .contact-form a:focus{
-  text-decoration: none;
-  color: #1b6ae4;
 }
 
 .footer-container .footer-img-desk {
@@ -505,7 +527,7 @@ export default {
   }
 
   .contact-box-container {
-    height: 300px;
+    margin-top: 50px;
   }
   .contact-form p, .contact-form .news-text, .contact-form input {
     font-size: 18.0224px;
@@ -542,7 +564,7 @@ export default {
   .top-content .top-big-link { margin-top: 25px; }
   .top-content .top-big-link a.btn { margin-top: 10px; }
 
-  .section-description p { padding: 0; }
+  .section-description { margin-bottom: 60px;}
 
   .services-container { padding-bottom: 60px; }
   .services-box h3 { margin-top: 20px; padding-top: 10px; }
