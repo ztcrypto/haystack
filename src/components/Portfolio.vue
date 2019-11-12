@@ -104,36 +104,23 @@
               <div class="col-md-6 contact-form wow fadeInDown">
                   <p>Newsletter</p>
                   <p class="news-text">{{page.fields['contact-description']}}</p>
-                  <div class="row">
-                  <div id="mc_embed_signup">
-                    <form action="https://haystack.us8.list-manage.com/subscribe/post?u=8015c7f0d2e7c73040a28ac30&amp;id=9305192d3c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                        <div id="mc_embed_signup_scroll">
-                          <h2>Subscribe</h2>
-                          <div class="indicates-required"><span class="asterisk"></span> indicates required</div>
-                          <div class="mc-field-group">
-                              <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
-                              </label>
-                              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-                          </div>
-                          <div class="mc-field-group">
-                              <label for="mce-FNAME">First Name </label>
-                              <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-                          </div>
-                          <div class="mc-field-group">
-                              <label for="mce-LNAME">Last Name </label>
-                              <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-                          </div>
-                          <div id="mce-responses" class="clear">
-                              <div class="response" id="mce-error-response" style="display:none"></div>
-                              <div class="response" id="mce-success-response" style="display:none"></div>
-                          </div>
-                          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8015c7f0d2e7c73040a28ac30_9305192d3c" tabindex="-1" value=""></div>
-                          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                  <form action="https://haystack.us8.list-manage.com/subscribe/post?u=8015c7f0d2e7c73040a28ac30&amp;id=9305192d3c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate row" target="_blank" novalidate>
+                      <div class="col-md-6 px-3">
+                        <div class="mc-field-group">
+                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your E-mail">
                         </div>
-                    </form>
-                  </div>
-                </div>
+                      </div>
+                      <div class="col-md-6 px-3">
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8015c7f0d2e7c73040a28ac30_9305192d3c" tabindex="-1" value=""></div>
+                        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                      </div>
+                  </form>
               </div>
           </div>
         </div>
@@ -414,15 +401,9 @@ export default {
 }
 .contact-box-container {
   margin-top: 100px;
+  height: 400px;
   margin-bottom: 50px;
   border-bottom: none !important;
-}
-.contact-form p {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -0.02em;
 }
 .contact-box .maillink {
   color: black;
@@ -435,6 +416,41 @@ export default {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.contact-form p {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+}
+.contact-form #mce-EMAIL {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0px;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.02em;  
+  outline: none;
+  color:black
+}
+.contact-form #mce-responses {
+  color: rgb(59, 97, 61);
+  font-size: 20px;
+}
+.contact-form #mc-embedded-subscribe {
+  border: none;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+  color: #607ABA;
+  outline: none;
+  background: none;
+  margin: 0px;
+}
+.contact-form #mc-embedded-subscribe:hover, .contact-form #mc-embedded-subscribe:focus{
+  text-decoration: none;
+  color: #1b6ae4;
+}
 .footer-container .footer-img-desk {
   display: block;
 }
@@ -528,6 +544,7 @@ export default {
 
   .contact-box-container {
     margin-top: 50px;
+    height: 300px;
   }
   .contact-form p, .contact-form .news-text, .contact-form input {
     font-size: 18.0224px;
