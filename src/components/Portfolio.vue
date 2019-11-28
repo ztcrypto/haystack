@@ -531,6 +531,9 @@ export default {
     top: auto;
   }
   .services-box { margin-bottom: 70px; }
+  .services-box .row .col-md-12:first-child {
+    min-height: 100px !important;
+  }
   .services-box .service-text { margin-bottom: 20px; }
   .services-box:nth-child(2n) .row::before {
     content: none;
