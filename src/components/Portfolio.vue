@@ -11,10 +11,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                      <a class="nav-link scroll-link" href="#about-us" v-scroll-to="'#about-us'" @click="removeMobileMenu()">About Us</a>
+                      <a class="nav-link scroll-link" href="#portfolio" v-scroll-to="'#portfolio'" @click="removeMobileMenu()">Portfolio</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link scroll-link" href="#portfolio" v-scroll-to="'#portfolio'" @click="removeMobileMenu()">Portfolio</a>
+                      <a class="nav-link scroll-link" href="#about-us" v-scroll-to="'#about-us'" @click="removeMobileMenu()">About Us</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link scroll-link" href="#team" v-scroll-to="'#team'" @click="removeMobileMenu()">Team</a>
@@ -113,7 +113,7 @@
                       <div class="col-md-6 px-3">
                         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8015c7f0d2e7c73040a28ac30_9305192d3c" tabindex="-1" value=""></div>
-                        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                        <div class="clear subscribe-div"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -424,6 +424,7 @@ export default {
   letter-spacing: -0.02em;
 }
 .contact-form #mce-EMAIL {
+  width: 100%;
   border: none;
   border-bottom: 1px solid #aaa;
   border-radius: 0px;
@@ -446,6 +447,9 @@ export default {
   outline: none;
   background: none;
   margin: 0px;
+}
+.contact-form .subscribe-div {
+  margin-top: 15px !important;
 }
 .contact-form #mc-embedded-subscribe:hover, .contact-form #mc-embedded-subscribe:focus{
   text-decoration: none;
