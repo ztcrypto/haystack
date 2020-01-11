@@ -677,8 +677,11 @@ export default {
     padding: 40px 0;
   }
   .top-content .text .intro-text {
-    font-size: 31.5392px;
-    line-height: 31px;
+    font-size: 40px;
+    width: 330px;
+    line-height: 40px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .top-content .text .description {
     margin: 0;
