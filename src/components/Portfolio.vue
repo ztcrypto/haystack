@@ -5,9 +5,11 @@
         <div class="row">
           <div class="col-md-4 text">
             <h1 class="wow fadeInLeftBig intro-text">{{page.fields['intro-text']}}</h1>
+            <!--
             <div class="description wow fadeInLeftBig">
               <p>{{page.fields['description']}}</p>
             </div>
+            -->
           </div>
           <div class="col-md-6 image-tbd">
             <img src="@/assets/haystack-radar.png" height="100%" />
