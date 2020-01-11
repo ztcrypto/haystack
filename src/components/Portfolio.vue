@@ -394,7 +394,7 @@ export default {
 }
 .top-content .image-tbd {
   height: 75vh;
-  z-index: 99999;
+  z-index: 9999;
 }
 .section-container .container {
   border-bottom: 1px solid #c4c4c4;
@@ -642,6 +642,7 @@ export default {
     padding: 0px;
     padding-top: 20px;
     height: auto;
+    z-index: 9999;
   }
   .navbar-brand {
     padding-left: 15px;
