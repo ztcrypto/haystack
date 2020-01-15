@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio">
+  <div class="conference">
     <div class="top-content" id="top-content">
       <div class="container">
         <div class="row">
@@ -13,8 +13,8 @@
             </div>
             -->
           </div>
-          <div class="col-md-6 image-tbd">
-            <img src="@/assets/haystack-radar.png" height="100%" />
+          <div class="col-md-8 image-tbd">
+            <img :src="page.fields['hero-image']" width="100%" />
           </div>
         </div>
       </div>
@@ -43,28 +43,28 @@
             <li class="nav-item">
               <a
                 class="nav-link scroll-link"
-                href="#portfolio"
-                v-scroll-to="'#portfolio'"
+                href="#about"
+                v-scroll-to="'#about'"
                 @click="removeMobileMenu()"
-                >Portfolio</a
+                >About</a
               >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link scroll-link"
-                href="#about-us"
-                v-scroll-to="'#about-us'"
+                href="#registration"
+                v-scroll-to="'#registration'"
                 @click="removeMobileMenu()"
-                >About Us</a
+                >Registration & Schedule</a
               >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link scroll-link"
-                href="#team"
-                v-scroll-to="'#team'"
+                href="#speakers"
+                v-scroll-to="'#speakers'"
                 @click="removeMobileMenu()"
-                >Team</a
+                >Past Speakers</a
               >
             </li>
             <li class="nav-item">
@@ -83,14 +83,39 @@
         </div>
       </div>
     </nav>
-    <div class="hero-container section-container" id="about-us">
-      <div class="container"></div>
-    </div>
-    <div class="services-container section-container" id="portfolio">
+    <div class="about-container section-container" id="about">
       <div class="container">
         <div class="row">
-          <div class="col services section-description wow fadeIn">
-            <h2>Select Investments</h2>
+          <div class="col speakers section-description wow fadeIn">
+            <h2>About</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <p class="about-text" v-html="page.fields['about-text']"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reg-container section-container" id="registration">
+      <div class="container">
+        <div class="row">
+          <div class="col speakers section-description wow fadeIn">
+            <h2>Registration & Schedule</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="reg-text">{{ page.fields["registration-intro"] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="speakers-container section-container" id="speakers">
+      <div class="container">
+        <div class="row">
+          <div class="col speakers section-description wow fadeIn">
+            <h2>Past Speakers</h2>
             <div class="divider-1 wow fadeInUp">
               <span></span>
             </div>
@@ -98,57 +123,20 @@
         </div>
         <div class="row">
           <div
-            class="col-md-6 services-box wow fadeInUp"
-            v-for="item in page.fields.investments"
+            class="col-md-6 speakers-box wow fadeInUp"
+            v-for="item in page.fields['past-speakers']"
             v-bind:key="item.key"
           >
-            <div class="row">
+            <div class="row speaker-text">
               <div class="col-md-12">
-                <p class="service-text">
-                  <a :href="item.url" target="_new" class="service-link">
-                    <span>{{ item.name }}</span>
-                  </a>
-                  {{ item.explanation }}
+                <p class="speaker-name">
+                  <span>{{ item.name }}</span>
                 </p>
               </div>
               <div class="col-md-12">
-                <a :href="item.url" target="_new">
-                  <img :src="item.logo" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="about-us-container section-container section-container-gray-bg"
-      id="team"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-8 about-us-box wow fadeInLeft">
-            <div class="about-us-box-text">
-              <h3>About Us</h3>
-              <div class="about-us-individual">
-                <h4>{{ page.fields["team-intro"] }}</h4>
-                <p class="medium-paragraph">
-                  {{ page.fields["team-description"] }}
+                <p class="speaker-role">
+                  <span>{{ item.role }}</span>
                 </p>
-                <div class="about-box-divider"></div>
-              </div>
-              <div
-                class="about-us-individual"
-                v-for="item in page.fields['team-member']"
-                v-bind:key="item.key"
-              >
-                <h4>{{ item.name }}</h4>
-                <p class="medium-paragraph">
-                  <span class="role">{{ item.role }}</span>
-                  <br />
-                  {{ item.explanation }}
-                </p>
-                <div class="about-box-divider"></div>
               </div>
             </div>
           </div>
@@ -255,7 +243,7 @@
 import { butter } from "@/buttercms";
 
 export default {
-  name: "Portfolio",
+  name: "Conference",
   data() {
     return {
       page: {
@@ -267,7 +255,7 @@ export default {
   methods: {
     getPage() {
       butter.page
-        .retrieve("*", "portfolio")
+        .retrieve("*", "alignment-summit")
         .then(res => {
           this.page = res.data.data;
         })
@@ -308,14 +296,13 @@ export default {
   font: 14px Helvetica, Arial, sans-serif;
 }
 .navbar {
-  padding-top: 4vh;
   height: 20vh;
   background: white;
   -o-transition: all 0.6s;
   -moz-transition: all 0.6s;
   -webkit-transition: all 0.6s;
   -ms-transition: all 0.6s;
-  transition: all 0.6s;
+  transition: all 0.6;
   backface-visibility: hidden;
 }
 
@@ -385,7 +372,7 @@ export default {
 }
 
 .top-content {
-  padding: 100px 0 0px 0;
+  padding: 200px 0 0px 0;
   height: 80vh;
 }
 
@@ -421,105 +408,71 @@ export default {
   margin-top: 45px;
 }
 .top-content .image-tbd {
-  height: 75vh;
   z-index: 9999;
 }
 .section-container .container {
   border-bottom: 1px solid #c4c4c4;
 }
 
-.hero-container {
-  background: linear-gradient(0.97deg, #ffffff 20.38%, #d8d8d8 191.38%);
+.about-container {
+  background: linear-gradient(0.97deg, #fff 20.38%, #eee 191.38%);
+  margin-bottom: 40px;
+  padding-top: 100px;
+}
+.about-container .container {
+  padding-bottom: 100px;
+}
+.about-container .container:before {
+  content: "";
+  display: block;
+  margin-bottom: 40px;
+  height: 40px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.about-container .about-text {
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.49);
+}
+.reg-container {
   margin-bottom: 40px;
 }
-.hero-container .container {
-  height: 500px;
+.reg-container .container {
+  padding-bottom: 100px;
+}
+.reg-container .container .section-description {
+  margin-bottom: 20px;
+}
+.reg-container .reg-text {
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.49);
 }
 .section-description {
   margin-bottom: 100px;
 }
-.services-box {
-  margin-bottom: 200px;
+.speakers-container .container {
+  padding-bottom: 150px;
+}
+.speakers-box {
   padding-top: 30px;
   padding-right: 100px;
   font-family: Founders Grotesk;
   font-style: normal;
   font-weight: 300;
-  font-size: 42px;
-  line-height: 50px;
-  letter-spacing: -0.02em;
-}
-.services-box .row .col-md-12:first-child {
-  min-height: 300px !important;
-}
-.services-box:nth-child(2n) .row::before {
-  border-left: 1px solid #c4c4c4;
-  content: "";
-  width: 1px;
-  height: calc(100% - 30px);
-  top: 30px;
-  left: 0;
-  position: absolute;
-}
-
-.services-box .service-text {
-  margin-bottom: 60px;
-  padding: 0 0 10px 0;
-  color: rgba(0, 0, 0, 0.5);
-}
-.services-box .service-link {
-  color: black;
-}
-.services-box .service-link:hover {
-  text-decoration: none;
-  color: #555;
-}
-
-.about-us-box {
-  margin-top: 100px;
-}
-
-.about-us-box-text {
-  padding-right: 30px;
-  text-align: left;
-}
-
-.about-us-box-text h3 {
-  margin-top: 0;
-  font-weight: 300;
-  font-size: 42px;
-  line-height: 50px;
-  letter-spacing: -0.02em;
-  margin-bottom: 100px;
-}
-.about-us-individual h4 {
-  font-weight: 300;
-  font-size: 42px;
-  line-height: 50px;
-  letter-spacing: -0.02em;
-  margin-top: 50px;
-}
-.about-us-individual p {
-  font-style: normal;
-  font-weight: 300;
   font-size: 32px;
-  line-height: 38px;
+  line-height: 50px;
   letter-spacing: -0.02em;
-  color: #808793;
-  margin-bottom: 50px;
 }
-.about-us-individual p span {
-  color: #c4c4c4;
+.speakers-box .speaker-name {
+  font-size: 32px;
+  padding: 0 0 10px 0;
+  color: #000;
+  margin: 0;
 }
-.about-box-divider {
-  border-bottom: 1px solid #c4c4c4;
-  width: 100px;
-}
-.about-us-individual:last-child .about-box-divider {
-  border: none;
-}
-.about-us-box-img img {
-  border-radius: 4px;
+.speakers-box .speaker-role {
+  font-size: 32px;
+  padding: 0 0 10px 0;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
 }
 .contact-box-container {
   margin-top: 100px;
@@ -611,47 +564,19 @@ export default {
     padding-left: 0.6rem;
     padding-right: 0.6rem;
   }
-
   .top-content {
     padding: 180px 0;
   }
-
   .section-description p {
     padding: 0;
   }
 
-  .services-box .services-box-icon {
+  .speakers-box .speakers-box-icon {
     width: 50px;
     height: 50px;
     font-size: 26px;
     line-height: 50px;
     border-radius: 18px;
-  }
-
-  .about-us-box {
-    margin-top: 80px;
-  }
-  .about-us-box:last-child {
-    margin-top: 50px;
-  }
-  .about-us-box-text {
-    padding-right: 0;
-  }
-
-  .more-services-box .more-services-box-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 26px;
-    line-height: 50px;
-    border-radius: 18px;
-  }
-
-  .portfolio-box h3:hover i {
-    padding-left: 10px;
-  }
-
-  .blog-box h3:hover i {
-    padding-left: 10px;
   }
 }
 
@@ -719,38 +644,26 @@ export default {
   }
   .top-content .image-tbd {
     width: 100%;
+    margin-top: 100px;
     height: auto;
     position: relative;
     left: auto;
     top: auto;
   }
   .top-content .image-tbd img {
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     height: auto;
   }
-  .services-box {
-    margin-bottom: 70px;
+  .about-container .about-text {
+    font-size: 24px;
   }
-  .services-box .row .col-md-12:first-child {
-    min-height: 100px !important;
-  }
-  .services-box .service-text {
+  .speakers-box .speaker-text {
     margin-bottom: 20px;
   }
-  .services-box:nth-child(2n) .row::before {
+  .speakers-box:nth-child(2n) .row::before {
     content: none;
   }
-  .about-us-individual h4 {
-    font-size: 23.6544px;
-    line-height: 28px;
-    letter-spacing: -0.02em;
-  }
-  .about-us-individual p {
-    font-size: 18.0224px;
-    line-height: 22px;
-    letter-spacing: -0.02em;
-  }
-
   .contact-box-container {
     margin-top: 50px;
     height: 300px;
@@ -792,10 +705,10 @@ export default {
     margin-bottom: 60px;
   }
 
-  .services-container {
+  .speakers-container {
     padding-bottom: 60px;
   }
-  .services-box h3 {
+  .speakers-box h3 {
     margin-top: 20px;
     padding-top: 10px;
   }
@@ -810,7 +723,7 @@ export default {
     padding-right: 0;
   }
 
-  .more-services-box h3 {
+  .more-speakers-box h3 {
     margin-top: 20px;
     padding-top: 10px;
   }

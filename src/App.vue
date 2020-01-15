@@ -1,41 +1,43 @@
 <template>
   <div id="app">
-    <Portfolio msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Portfolio from './components/Portfolio.vue'
-
 export default {
-  name: 'app',
-  components: {
-    Portfolio
-  }
-}
+  name: "app"
+};
 </script>
 
 <style>
 @font-face {
-    font-family: 'Founders Grotesk';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Founders Grotesk'),
-        url('assets/fonts/FoundersGroteskWeb-Regular.eot?#iefix') format('embedded-opentype'), 
-        url('assets/fonts/FoundersGroteskWeb-Regular.woff') format('woff');
+  font-family: "Founders Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Founders Grotesk"),
+    url("assets/fonts/FoundersGroteskWeb-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/fonts/FoundersGroteskWeb-Regular.woff") format("woff");
 }
 @font-face {
-    font-family: 'Founders Grotesk';
-    font-style: normal;
-    font-weight: 300;
-    src: url('assets/fonts/FoundersGroteskWeb-Light.eot?#iefix') format('embedded-opentype'), 
-         url('assets/fonts/FoundersGroteskWeb-Light.woff') format('woff');
+  font-family: "Founders Grotesk";
+  font-style: normal;
+  font-weight: 300;
+  src: url("assets/fonts/FoundersGroteskWeb-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/fonts/FoundersGroteskWeb-Light.woff") format("woff");
 }
 body {
   background: #fff;
 }
-body, p, h1, h2, h3, h4 {
-  font-family: 'Founders Grotesk';
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Founders Grotesk";
   font-size: 42px;
   font-weight: 300;
 }
