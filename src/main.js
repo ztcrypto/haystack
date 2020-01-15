@@ -12,8 +12,7 @@ Vue.config.productionTip = false
 Vue.use(VueScrollTo);
 Vue.use(VueRouter);
 const router = new VueRouter({
-  mode: 'history',
-  base: __dirname,
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
