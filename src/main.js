@@ -9,7 +9,9 @@ import Conference from "./components/Conference.vue";
 var VueScrollTo = require("vue-scrollto");
 
 Vue.config.productionTip = false;
-Vue.use(VueScrollTo);
+Vue.use(VueScrollTo, {
+  offset: -250
+})
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",

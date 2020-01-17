@@ -4,9 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 text">
-            <h1 class="wow fadeInLeftBig intro-text">
-              {{ page.fields["intro-text"] }}
-            </h1>
+            <h1 class="wow fadeInLeftBig intro-text">{{ page.fields["intro-text"] }}</h1>
             <!--
             <div class="description wow fadeInLeftBig">
               <p>{{page.fields['description']}}</p>
@@ -19,9 +17,7 @@
         </div>
       </div>
     </div>
-    <nav
-      :class="'navbar navbar-dark navbar-expand-md navbar-no-bg ' + navbarClass"
-    >
+    <nav :class="'navbar navbar-dark navbar-expand-md navbar-no-bg ' + navbarClass">
       <div class="container">
         <a class="navbar-brand" href="/">
           <img :src="page.fields.logo" />
@@ -46,8 +42,7 @@
                 href="#about"
                 v-scroll-to="'#about'"
                 @click="removeMobileMenu()"
-                >About</a
-              >
+              >About</a>
             </li>
             <li class="nav-item">
               <a
@@ -55,8 +50,7 @@
                 href="#registration"
                 v-scroll-to="'#registration'"
                 @click="removeMobileMenu()"
-                >Registration & Schedule</a
-              >
+              >Registration & Schedule</a>
             </li>
             <li class="nav-item">
               <a
@@ -64,8 +58,7 @@
                 href="#speakers"
                 v-scroll-to="'#speakers'"
                 @click="removeMobileMenu()"
-                >Past Speakers</a
-              >
+              >Past Speakers</a>
             </li>
             <li class="nav-item">
               <a
@@ -73,8 +66,7 @@
                 href="#contact"
                 v-scroll-to="'#contact'"
                 @click="removeMobileMenu()"
-                >Contact</a
-              >
+              >Contact</a>
             </li>
           </ul>
           <div class="nav-logo container">
@@ -148,9 +140,11 @@
         <div class="row">
           <div class="col-md-6 contact-box wow fadeInUp">
             <p>
-              <a :href="maillink" class="maillink">{{
+              <a :href="maillink" class="maillink">
+                {{
                 page.fields["contact-email"]
-              }}</a>
+                }}
+              </a>
             </p>
           </div>
           <div class="col-md-6 contact-form wow fadeInDown">
@@ -179,10 +173,7 @@
               </div>
               <div class="col-md-6 px-3">
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div
-                  style="position: absolute; left: -5000px;"
-                  aria-hidden="true"
-                >
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
                   <input
                     type="text"
                     name="b_8015c7f0d2e7c73040a28ac30_9305192d3c"
@@ -201,16 +192,8 @@
                 </div>
 
                 <div id="mce-responses" class="clear">
-                  <div
-                    class="response"
-                    id="mce-error-response"
-                    style="display:none"
-                  ></div>
-                  <div
-                    class="response"
-                    id="mce-success-response"
-                    style="display:none"
-                  ></div>
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
                 </div>
               </div>
             </form>
@@ -225,13 +208,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 footer-img-desk wow fadeInUp">
-            <img :src="page.fields.footerlogo" />
+            <a href="http://haystack.vc">
+              <img :src="page.fields.footerlogo" />
+            </a>
           </div>
           <div class="col-md-6 copyright wow fadeInDown">
             <p>@2019 Haystack Management Company LLC All rights reserved.</p>
           </div>
           <div class="col-md-6 footer-img-mob wow fadeInUp">
-            <img width="43px" :src="page.fields.footerlogo" />
+            <a href="http://haystack.vc">
+              <img width="43px" :src="page.fields.footerlogo" />
+            </a>
           </div>
         </div>
       </div>
@@ -338,6 +325,9 @@ export default {
 .navbar-brand {
   width: 136px;
   border: 0;
+}
+.navbar-brand img {
+  width: 200px;
 }
 .navbar-toggler {
   background: white;
