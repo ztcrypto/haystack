@@ -19,7 +19,7 @@
     </div>
     <nav :class="'navbar navbar-dark navbar-expand-md navbar-no-bg ' + navbarClass">
       <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/conference">
           <img :src="page.fields.logo" />
         </a>
         <div

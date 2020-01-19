@@ -125,8 +125,8 @@
                 <p class="medium-paragraph">
                   <span class="role">{{ item.role }}</span>
                   <br />
-                  {{ item.explanation }}
                 </p>
+                <div v-html="item.explanation"></div>
                 <div class="about-box-divider"></div>
               </div>
             </div>
@@ -274,7 +274,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 #mc_embed_signup {
   width: 100%;
   background: #fff;
@@ -636,7 +636,7 @@ export default {
   h3,
   h4,
   p {
-    font-size: 23.6544px;
+    font-size: 23.6544px !important;
     line-height: 28px;
     letter-spacing: -0.02em;
   }
