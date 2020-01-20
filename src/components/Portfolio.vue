@@ -480,7 +480,6 @@ export default {
   line-height: 38px;
   letter-spacing: -0.02em;
   color: #808793;
-  margin-bottom: 50px;
 }
 .about-us-individual p span {
   color: #c4c4c4;
