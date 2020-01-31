@@ -140,7 +140,7 @@
           <div class="col-md-6 contact-box wow fadeInUp">
             <p>
               <a href="https://twitter.com/haystackvc" class="maillink" target="_new">
-                <img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png" />
+                <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" />
               </a>
             </p>
           </div>
