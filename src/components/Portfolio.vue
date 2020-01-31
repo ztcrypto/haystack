@@ -58,7 +58,7 @@
                 href="#contact"
                 v-scroll-to="'#contact'"
                 @click="removeMobileMenu()"
-              >Contact</a>
+              >Resources</a>
             </li>
           </ul>
           <div class="nav-logo container">
@@ -139,10 +139,8 @@
         <div class="row">
           <div class="col-md-6 contact-box wow fadeInUp">
             <p>
-              <a :href="maillink" class="maillink">
-                {{
-                page.fields["contact-email"]
-                }}
+              <a href="https://twitter.com/haystackvc" class="maillink" target="_new">
+                <img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png" />
               </a>
             </p>
           </div>
@@ -212,7 +210,7 @@
             </a>
           </div>
           <div class="col-md-6 copyright wow fadeInDown">
-            <p>@2019 Haystack Management Company LLC All rights reserved.</p>
+            <p>@2020 Haystack Management Company LLC All rights reserved.</p>
           </div>
           <div class="col-md-6 footer-img-mob wow fadeInUp">
             <a href="http://haystack.vc">
